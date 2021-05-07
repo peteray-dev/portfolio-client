@@ -85,7 +85,7 @@ app.all('*' , (err, req, res, next)=>{
     next(new ApiError('oppppss, page not found', 404))
 })
 
-PORT = 5000
+const PORT = process.env.PORT || 5000
 
 
 moongose.connect('mongodb://127.0.0.1:27017/contacts', {
