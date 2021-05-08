@@ -85,6 +85,21 @@ app.all('*' , (err, req, res, next)=>{
     next(new ApiError('oppppss, page not found', 404))
 })
 
+//--------------------------------------------//
+
+const configs = {
+  development: {
+    SERVER_URI: 'localhost:5000',
+  },
+  production: {
+    SERVER_URI: 'HEROKU_URI',
+  },
+};
+
+module.exports.config = configs[process.env.NODE_ENV]
+
+//------------------------------------------//
+
 const PORT = process.env.PORT || 5000
 
 
